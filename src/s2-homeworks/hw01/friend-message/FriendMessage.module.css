@@ -1,0 +1,92 @@
+.friendMessage {
+width: 1280px;
+}
+
+.friendImageAndText {
+
+}
+
+.friendImageAndText img {
+position: absolute;
+width: 48px;
+height: 48px;
+left: 1162px;
+top: 180px;
+}
+
+.friendText {
+    position: absolute;
+    width: 527px;
+    height: 60px;
+    left: 615px;
+    top: 168px;
+    border-radius: 10px 10px 0px 10px;
+    background: #0066CC;
+    
+}
+
+.friendText:after {
+    content: '';
+    height: 60px;
+    width: 20px;
+    position: absolute;
+    top:0px;
+    right:-20px;
+    background: linear-gradient(200deg,transparent 88%, #0066CC 88%);
+
+}
+
+.friendName {
+position: absolute;
+    height: 22px;
+    right: 25px;
+    top: 7px;
+    
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+    
+    
+    color: white;
+    
+}
+
+.friendMessageText {
+    position: absolute;
+        width: 489px;
+        height: 20px;
+        right: 25px;
+        top: 32px;
+    
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: right;
+    /* identical to box height */
+    
+    
+    color: #FFFFFF;
+}
+
+.friendTime {
+
+position: absolute;
+width: 26px;
+height: 12px;
+left: 1173px;
+top: 233px;
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 10px;
+line-height: 12px;
+
+color: #000000;
+
+}
