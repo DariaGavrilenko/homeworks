@@ -1,5 +1,6 @@
 .friendMessage {
 width: 1280px;
+position: relative;
 }
 
 .friendImageAndText {
