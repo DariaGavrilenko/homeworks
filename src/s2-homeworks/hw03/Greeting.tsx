@@ -1,4 +1,4 @@
-import React, {ChangeEvent, KeyboardEvent} from 'react'
+import React, {ChangeEvent, KeyboardEvent, useState} from 'react'
 import s from './Greeting.module.css'
 
 type GreetingPropsType = {
@@ -26,7 +26,7 @@ const Greeting: React.FC<GreetingPropsType> = (
     } // деструктуризация пропсов
 ) => {
     const inputClass = error? s.errorInput : s.input // need to fix with (?:)
-
+    
     return (
         <div id={'hw3-form'} className={s.greetingForm}>
             <div className={s.text}>
@@ -63,7 +63,7 @@ const Greeting: React.FC<GreetingPropsType> = (
 
             {lastUserName && (
                 <div className={s.greeting}>
-                    Привет <span id={'hw3-last-user'}>{lastUserName}</span>!
+                    Привет <span id={'hw3-last-user'} style={{whiteSpace:"break-spaces"}}>{lastUserName}</span>!
                 </div>
             )}
         </div>
