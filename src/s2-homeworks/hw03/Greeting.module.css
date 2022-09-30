@@ -1,4 +1,10 @@
 .greetingForm {
+    width: 700px;
+    margin: 50px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .inputAndButtonContainer {
@@ -8,15 +14,23 @@
 }
 
 .input {
+    width: 500px;
 }
 
 .input:focus {
 }
 
 .errorInput {
+    width: 500px;
+    background-color: rgb(174, 43, 43, 0.5);
 }
 
 .button {
+    position:absolute;
+    top: 1px;
+    right: 70px;
+    background-color: rgb(102, 102, 220);
+    color: white;
 }
 
 .button:focus {
@@ -26,10 +40,18 @@
 }
 
 .button:disabled {
+    background-color: rgba(83, 66, 214, 0.5);
+    color:rgb(87, 82, 82);
 }
 
 .text {
+    position: absolute;
+    top:-20px;
+    left:100px;
 }
 
 .greeting {
+    position:absolute;
+    top:40px;
+    left:100px;
 }
