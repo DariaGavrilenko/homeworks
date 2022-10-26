@@ -1,4 +1,5 @@
 .radio {
+
 }
 
 .radio::before {
@@ -6,10 +7,19 @@
 
 
 .radio:checked::before {
+
 }
 
 .label {
+    display:block;
+    margin-left: 100px;
+  
 }
 
 .options {
+    margin-top: -20px ;
+}
+
+.span {
+    margin-left: 8px;
 }
