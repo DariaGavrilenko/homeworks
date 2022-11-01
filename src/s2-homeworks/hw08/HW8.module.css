@@ -5,19 +5,48 @@
 }
 
 .users {
+margin-left: 30px;
+margin-top: 10px;    
+width: 610px;
+
 }
 
 .buttonsContainer {
+    margin-top: 20px;
+    margin-left: 150px;
+    margin-bottom: 20px;
 }
 
 .container {
 }
+ 
+table{
+    border-collapse: collapse; 
+    width: 1000px;
 
-.thead {
 }
-
-.nameCol {
+.thead {
+    background-color: #E5E5E5;
+    height: 36px;
+    border: none;
+}
+.thead td {
+font-weight: bold;
 }
 
 .ageCol {
+    font-weight: bold;
+}
+
+tbody tr {
+    height: 47px;
+    border-bottom: 1px solid #E5E5E5;
+    font-weight: bold;
+
+}
+
+.nameCol {
+    width: 280px;
+    padding-left: 15px;
+    font-weight: lighter;
 }
