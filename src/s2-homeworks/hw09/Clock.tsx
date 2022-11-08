@@ -38,10 +38,10 @@ function Clock() {
     });
 
     let formatter1 = new Intl.DateTimeFormat("ru");
-    let formatter2 = new Intl.DateTimeFormat("ru", {
+    let formatter2 = new Intl.DateTimeFormat("en-US", {
         month: "long",
     }); 
-      let formatter3 = new Intl.DateTimeFormat("ru", {
+      let formatter3 = new Intl.DateTimeFormat("en-US", {
         weekday: "long",
     });
 
