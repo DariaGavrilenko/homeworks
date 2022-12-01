@@ -1,3 +1,7 @@
 .loader {
     /*свг и/или анимация*/
+    width: 200px;
+    height: 200px;
+background-image: url(https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700);
+background-size: contain;
 }
