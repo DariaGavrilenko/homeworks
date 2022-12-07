@@ -21,7 +21,7 @@ const SuperRange: React.FC<SliderProps> = (props) => {
                         width:'5px',
                         height:'5px',
                         borderRadius:'50%',
-                        backgroundyaColor:'green'
+                        backgroundColor:'green'
                     },
                   '&:hover, &.Mui-focusVisible': {
                     boxShadow: `0px 0px 0px 8px rgba(0, 0, 0, 0.2)}`,
