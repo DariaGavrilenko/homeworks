@@ -3,5 +3,12 @@
 }
 
 .loading {
-
+position: relative;
+top: 0px;
+left:300px;
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 16px;
+color: #4D4D4D;
 }
