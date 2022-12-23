@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW15.module.css'
 import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
-import {useSearchParams} from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import SuperSort from './common/c10-SuperSort/SuperSort'
 
 /*
@@ -31,7 +31,7 @@ const getTechs = (params: ParamsType) => {
     return axios
         .get<{ techs: TechType[], totalCount: number }>(
             'https://incubator-personal-page-back.herokuapp.com/api/3.0/homework/test3',
-            {params}
+            { params }
         )
         .catch((e) => {
             alert(e.response?.data?.errorText || e.message)
@@ -39,7 +39,7 @@ const getTechs = (params: ParamsType) => {
 }
 
 const HW15 = () => {
-    const [sort, setSort] = useState('')
+    const [sort, setSort] = useState('') //asc || dsc
     const [page, setPage] = useState(1)
     const [count, setCount] = useState(4)
     const [idLoading, setLoading] = useState(false)
@@ -47,50 +47,109 @@ const HW15 = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
 
+    const getSortedItems = (data: Array<TechType>, sort: string) => {
+        console.log('2', sort)
+        if (sort === '1developer') {
+            return data.sort((a, b) => {
+
+                if (a.developer > b.developer) {
+                    return -1;
+                }
+                if (a.developer < b.developer) {
+                    return 1;
+                }
+
+                return 0;
+
+            })
+        }
+
+        if (sort === '0developer') {
+            return data.sort((a, b) => {
+
+                if (a.developer > b.developer) {
+                    return 1;
+                }
+                if (a.developer < b.developer) {
+                    return -1;
+                }
+
+                return 0;
+
+            })
+        }
+
+        if (sort === '1tech') {
+            return data.sort((a, b) => {
+
+                if (a.tech > b.tech) {
+                    return -1;
+                }
+                if (a.tech < b.tech) {
+                    return 1;
+                }
+
+                return 0;
+            })
+        }
+
+        if (sort === '0tech') {
+            return data.sort((a, b) => {
+
+                if (a.tech > b.tech) {
+                    return 1;
+                }
+                if (a.tech < b.tech) {
+                    return -1;
+                }
+
+                return 0;
+            })
+        }
+
+        return data
+    }
+
     const sendQuery = (params: any) => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
-                // делает студент
+                if (res) {
+                    setTechs(res.data.techs)
+                    setTotalCount(res.data.totalCount)
+                }
 
-                // сохранить пришедшие данные
-
-                //
+                setLoading(false)
             })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
-        // делает студент
+        const params = { page: newPage.toString(), count: newCount.toString() }
 
-        // setPage(
-        // setCount(
-
-        // sendQuery(
-        // setSearchParams(
-
-        //
+        setPage(newPage)
+        setCount(newCount)
+        setSearchParams(params)
+        sendQuery(params)
     }
 
     const onChangeSort = (newSort: string) => {
-        // делает студент
+        const params = { page: '1', count: count.toString() }
 
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
+        setSort(newSort)
+        setPage(1)
+        setSearchParams(params)
+        sendQuery(params)
 
-        // sendQuery(
-        // setSearchParams(
-
-        //
     }
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
-        sendQuery({page: params.page, count: params.count})
+        sendQuery({ page: params.page, count: params.count })
         setPage(+params.page || 1)
         setCount(+params.count || 4)
     }, [])
 
-    const mappedTechs = techs.map(t => (
+    const mappedTechs =  getSortedItems(techs, sort).map(t => (
         <div key={t.id} className={s.row}>
             <div id={'hw15-tech-' + t.id} className={s.tech}>
                 {t.tech}
@@ -119,12 +178,12 @@ const HW15 = () => {
                 <div className={s.rowHeader}>
                     <div className={s.techHeader}>
                         tech
-                        <SuperSort sort={sort} value={'tech'} onChange={onChangeSort}/>
+                        <SuperSort sort={sort} value={'tech'} onChange={onChangeSort} />
                     </div>
 
                     <div className={s.developerHeader}>
                         developer
-                        <SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
+                        <SuperSort sort={sort} value={'developer'} onChange={onChangeSort} />
                     </div>
                 </div>
 
