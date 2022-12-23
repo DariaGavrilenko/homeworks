@@ -47,69 +47,6 @@ const HW15 = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
 
-    const getSortedItems = (data: Array<TechType>, sort: string) => {
-        console.log('2', sort)
-        if (sort === '1developer') {
-            return data.sort((a, b) => {
-
-                if (a.developer > b.developer) {
-                    return -1;
-                }
-                if (a.developer < b.developer) {
-                    return 1;
-                }
-
-                return 0;
-
-            })
-        }
-
-        if (sort === '0developer') {
-            return data.sort((a, b) => {
-
-                if (a.developer > b.developer) {
-                    return 1;
-                }
-                if (a.developer < b.developer) {
-                    return -1;
-                }
-
-                return 0;
-
-            })
-        }
-
-        if (sort === '1tech') {
-            return data.sort((a, b) => {
-
-                if (a.tech > b.tech) {
-                    return -1;
-                }
-                if (a.tech < b.tech) {
-                    return 1;
-                }
-
-                return 0;
-            })
-        }
-
-        if (sort === '0tech') {
-            return data.sort((a, b) => {
-
-                if (a.tech > b.tech) {
-                    return 1;
-                }
-                if (a.tech < b.tech) {
-                    return -1;
-                }
-
-                return 0;
-            })
-        }
-
-        return data
-    }
-
     const sendQuery = (params: any) => {
         setLoading(true)
         getTechs(params)
@@ -133,7 +70,7 @@ const HW15 = () => {
     }
 
     const onChangeSort = (newSort: string) => {
-        const params = { page: '1', count: count.toString() }
+        const params = { page: '1', count: count.toString(), sort: newSort}
 
         setSort(newSort)
         setPage(1)
@@ -149,7 +86,7 @@ const HW15 = () => {
         setCount(+params.count || 4)
     }, [])
 
-    const mappedTechs =  getSortedItems(techs, sort).map(t => (
+    const mappedTechs =  techs.map(t => (
         <div key={t.id} className={s.row}>
             <div id={'hw15-tech-' + t.id} className={s.tech}>
                 {t.tech}
